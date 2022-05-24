@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 
 const app = express()
@@ -7,6 +9,8 @@ app.get('/', (req, res) => {
     res.send("<h1>Hola Ju, cómo estás? todo viento ?</h1>")
 })
 
-app.listen(4000,()=>{
-    console.log("Escuchando en el puerto 4000")
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT,()=>{
+    console.log(`Escuchando por el puerto ${PORT}`)
 })
