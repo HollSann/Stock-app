@@ -4,7 +4,7 @@ const Product = require('../models/product')
 const getProducts = async (req, res) => {
     const products = await Product.find() //método para obtener todos los productos
 
-    res.status(200).json({ ok: true, data: products })
+    res.status(200).json({ ok: true, products, count: products.length })
 }
 
 const createProduct = (req, res) => {
@@ -21,9 +21,10 @@ const createProduct = (req, res) => {
     //Esperar a que se envien los datos con promesas
     newProduct
         .save()
-        .then(result => { //si todo se envio correctamente 
+        .then((result) => { //si todo se envio correctamente 
             res.status(201).json({ ok: true })
-        }).catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
 
 }
 

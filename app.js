@@ -13,4 +13,4 @@ app.use(cors({ origin: true }))
 
 app.use(express.json()) //usa un midleware que afecta todas las rutas, cuando se envien archivos de tipo jSON(es un método del objeto express)
 
-app.post('/api/v1/products', productRouter)
+app.use('/api/v1/products', productRouter)
